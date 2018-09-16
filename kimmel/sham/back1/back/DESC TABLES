@@ -1,0 +1,86 @@
+mysql> DESC NOTIFICATION;
++----------+-------------+------+-----+---------+-------+
+| Field    | Type        | Null | Key | Default | Extra |
++----------+-------------+------+-----+---------+-------+
+| case_id  | int(11)     | YES  | MUL | NULL    |       |
+| owner_id | varchar(15) | YES  | MUL | NULL    |       |
+| notify   | varchar(50) | YES  |     | NULL    |       |
++----------+-------------+------+-----+---------+-------+
+3 rows in set (0.02 sec)
+
+mysql> DESC OFFENCE;
++--------------+-------------+------+-----+---------+----------------+
+| Field        | Type        | Null | Key | Default | Extra          |
++--------------+-------------+------+-----+---------+----------------+
+| offence_id   | int(11)     | NO   | PRI | NULL    | auto_increment |
+| offence_name | varchar(30) | YES  |     | NULL    |                |
+| offence_fine | int(5)      | YES  |     | NULL    |                |
++--------------+-------------+------+-----+---------+----------------+
+3 rows in set (0.01 sec)
+
+mysql> DESC OWNER;
++----------+-------------+------+-----+---------+-------+
+| Field    | Type        | Null | Key | Default | Extra |
++----------+-------------+------+-----+---------+-------+
+| owner_id | varchar(10) | NO   | PRI | NULL    |       |
+| name     | varchar(10) | YES  |     | NULL    |       |
+| phone    | int(11)     | YES  |     | NULL    |       |
+| address  | varchar(50) | YES  |     | NULL    |       |
+| dob      | date        | YES  |     | NULL    |       |
++----------+-------------+------+-----+---------+-------+
+5 rows in set (0.00 sec)
+
+mysql> DESC PCASE;
++------------+-------------+------+-----+---------+----------------+
+| Field      | Type        | Null | Key | Default | Extra          |
++------------+-------------+------+-----+---------+----------------+
+| case_id    | int(11)     | NO   | PRI | NULL    | auto_increment |
+| offence_id | int(11)     | YES  | MUL | NULL    |                |
+| paid       | tinyint(1)  | YES  |     | NULL    |                |
+| date_of    | date        | YES  |     | NULL    |                |
+| reg_no     | varchar(20) | YES  | MUL | NULL    |                |
+| location   | varchar(20) | YES  |     | NULL    |                |
+| due_amt    | int(5)      | YES  |     | NULL    |                |
++------------+-------------+------+-----+---------+----------------+
+7 rows in set (0.01 sec)
+
+mysql> DESC POLICE;
++--------------+-------------+------+-----+---------+-------+
+| Field        | Type        | Null | Key | Default | Extra |
++--------------+-------------+------+-----+---------+-------+
+| police_id    | varchar(10) | NO   | PRI | NULL    |       |
+| password     | varchar(15) | YES  |     | NULL    |       |
+| jursdication | varchar(50) | YES  |     | NULL    |       |
++--------------+-------------+------+-----+---------+-------+
+3 rows in set (0.02 sec)
+
+mysql> DESC RECIEPT;
+ERROR 1146 (42S02): Table 'VEHICLE.RECIEPT' doesn't exist
+mysql> DESC RECEIPT;
++------------+-------------+------+-----+---------+----------------+
+| Field      | Type        | Null | Key | Default | Extra          |
++------------+-------------+------+-----+---------+----------------+
+| receipt_id | int(11)     | NO   | PRI | NULL    | auto_increment |
+| reg_no     | varchar(20) | YES  | MUL | NULL    |                |
+| case_id    | int(11)     | YES  | MUL | NULL    |                |
+| date_in    | date        | YES  |     | NULL    |                |
+| amount     | int(11)     | YES  |     | NULL    |                |
+| police_id  | varchar(10) | YES  | MUL | NULL    |                |
++------------+-------------+------+-----+---------+----------------+
+6 rows in set (0.01 sec)
+
+mysql> DESC VEHICLE;
++---------------+-------------+------+-----+---------+-------+
+| Field         | Type        | Null | Key | Default | Extra |
++---------------+-------------+------+-----+---------+-------+
+| reg_no        | varchar(20) | NO   | PRI | NULL    |       |
+| insured       | tinyint(1)  | YES  |     | NULL    |       |
+| emission_test | tinyint(1)  | YES  |     | NULL    |       |
+| model         | varchar(20) | YES  |     | NULL    |       |
+| make          | varchar(20) | YES  |     | NULL    |       |
+| owner_id      | varchar(10) | YES  | MUL | NULL    |       |
++---------------+-------------+------+-----+---------+-------+
+6 rows in set (0.00 sec)
+
+mysql> 
+
